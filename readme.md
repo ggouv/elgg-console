@@ -1,0 +1,1 @@
+Type `crtl + maj + c` to display console.
