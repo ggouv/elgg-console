@@ -17,7 +17,11 @@ echo elgg_view('input/plaintext', array(
 
 echo elgg_view('input/submit', array(
 	'value' => elgg_echo("submit"),
-	'class' => 'elgg-button-submit',
+	'class' => 'elgg-button-submit mrm',
+));
+
+echo elgg_echo("entity_scanner") . elgg_view('input/checkbox', array(
+	'name' => 'entity_scanner',
 ));
 
 echo elgg_view('output/url', array(
