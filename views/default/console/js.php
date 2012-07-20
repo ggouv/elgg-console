@@ -22,9 +22,6 @@ elgg.console.init = function() {
 			if(e.which == 67 && e.ctrlKey && e.shiftKey && !$('#elgg-console').length) {
 				elgg.get(elgg.config.wwwroot + 'ajax/view/console/console', {
 					dataType: "html",
-					data: {
-						code: $('.elgg-form-console').attr('id'),
-					},
 					success: function(response) {
 						$('body').append(response);
 						$('#elgg-console').draggable({ handle: '#elgg-console-code' });
@@ -34,7 +31,10 @@ elgg.console.init = function() {
 						
 						$('#elgg-console .elgg-button-submit').click(function() {
 							elgg.post(elgg.config.wwwroot + 'ajax/view/console/execute', {
-								data: $(this).closest('form').serialize(),
+								data: {
+									code: $('.elgg-form-console textarea[name="code"]').val(),
+									page_owner: elgg.get_page_owner_guid(),
+								},
 								success: function(response) {
 									$('#elgg-console-response div').html(response);
 								}

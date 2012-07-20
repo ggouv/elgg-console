@@ -9,6 +9,10 @@
  *	Elgg-console action file
  **/
 
-$code =  $_REQUEST['code'];
+$page_owner = (int)get_input('page_owner');
+
+elgg_set_page_owner_guid($page_owner);
+
+$code = $_REQUEST['code'];
 
 eval("$code;");
