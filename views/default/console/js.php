@@ -31,12 +31,15 @@ elgg.console.init = function() {
 						$('#elgg-console .elgg-head a').click(function() {
 							$('#elgg-console').remove();
 						});
+						$( "#elgg-console-response" ).resizable({
+							handles: { 's' : '#handle' },
+						});
 						
 						$('#elgg-console .elgg-button-submit').click(function() {
 							elgg.post(elgg.config.wwwroot + 'ajax/view/console/execute', {
 								data: $(this).closest('form').serialize(),
 								success: function(response) {
-									$('#elgg-console-response div').html(response);
+									$('#elgg-console-response .response').html('<br/>' + response);
 								}
 							});
 							return false;
