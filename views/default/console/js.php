@@ -29,7 +29,10 @@ elgg.console.init = function() {
 							$('#elgg-console').remove();
 							$('*').unbind('mouseover');
 						});
-
+						$( "#elgg-console-response" ).resizable({
+							handles: { 's' : '#handle' },
+						});
+						
 						$('#elgg-console .elgg-button-submit').click(function() {
 							elgg.post(elgg.config.wwwroot + 'ajax/view/console/execute', {
 								data: {
@@ -37,7 +40,7 @@ elgg.console.init = function() {
 									page_owner: elgg.get_page_owner_guid(),
 								},
 								success: function(response) {
-									$('#elgg-console-response div').html(response);
+									$('#elgg-console-response .response').html('<br/>' + response);
 								}
 							});
 							return false;

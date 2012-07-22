@@ -58,7 +58,26 @@
 	background-color: white;
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 	margin: 0 3%;
-	max-height: 200px;
 	width: 94%;
+	position: relative;
+	z-index: -1;
+	overflow: hidden;
+	height: 43px;
+	padding-bottom: 11px;
+}
+#elgg-console-response .response {
 	overflow: auto;
+	height: 100%;
+}
+#elgg-console-response #handle {
+	background-color: #F5F5F5;
+	color: #999999;
+	cursor: ns-resize;
+	font-size: 100%;
+	line-height: 11px;
+	overflow: hidden;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
