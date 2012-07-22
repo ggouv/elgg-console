@@ -58,7 +58,7 @@
 	background-color: white;
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 	margin: 0 3%;
-	width: 94%;
+	width: 94% !important;
 	position: relative;
 	z-index: -1;
 	overflow: hidden;
@@ -80,4 +80,7 @@
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+}
+.entity_scanner_over {
+	border: 2px red solid !important;
 }

@@ -20,9 +20,9 @@ echo elgg_view('input/submit', array(
 	'class' => 'elgg-button-submit mrm',
 ));
 
-echo elgg_echo("entity_scanner") . elgg_view('input/checkbox', array(
+echo '<span class="float">' . elgg_echo("entity_scanner") . elgg_view('input/checkbox', array(
 	'name' => 'entity_scanner',
-));
+)) . '</span>';
 
 echo elgg_view('output/url', array(
 				'text' => elgg_view_icon('download'),

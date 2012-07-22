@@ -22,7 +22,7 @@
 	
 	<div id='elgg-console-response'>
 		<div class='response phm'>
-			<span style='color:gray;'>Nothing.</span>
+			<span style='color:gray;'><br/>Nothing.</span>
 		</div>
 		<div id='handle' class='ui-resizable-handle ui-resizable-s'>&bull;</div>
 	</div>
