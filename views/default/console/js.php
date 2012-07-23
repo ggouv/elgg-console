@@ -19,7 +19,12 @@ elgg.provide('elgg.console');
 elgg.console.init = function() {
 	$(document).ready(function() {
 		$(window).keypress(function(e){
-			if(e.which == 67 && e.ctrlKey && e.shiftKey && !$('#elgg-console').length) {
+			if (!$('#elgg-console').length &&
+				e.which == <?php echo ord(elgg_get_plugin_setting('char', 'elgg-console')); ?>
+				<?php if (elgg_get_plugin_setting('metaKey', 'elgg-console') == 'yes') echo ' && e.metaKey'; ?>
+				<?php if (elgg_get_plugin_setting('shiftKey', 'elgg-console') == 'yes') echo ' && e.shiftKey'; ?>
+				<?php if (elgg_get_plugin_setting('altKey', 'elgg-console') == 'yes') echo ' && e.altKey'; ?>
+			 ) {
 				elgg.get(elgg.config.wwwroot + 'ajax/view/console/console', {
 					dataType: "html",
 					success: function(response) {
@@ -47,9 +52,10 @@ elgg.console.init = function() {
 						});
 
 						// entity scanner
-						$('.elgg-form-console input[name="entity_scanner"]').click(function() {
+						$('.elgg-form-console .entity-scanner').click(function() {
+							$(this).toggleClass('activated');
 							$.LastEntityOver = '';
-							if ( $(this).attr("checked") ) {
+							if ($(this).hasClass('activated')) {
 								$('*').bind('mouseover', (function() {
 									var EntityOver = $(this).parents('*[id^="elgg-object-"], *[id^="elgg-group-"], *[id^="elgg-user-"], *[id^="item-river-"], *[id^="item-annotation-"]');
 									

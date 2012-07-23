@@ -15,7 +15,7 @@ $english = array(
 	/**
 	 * Menu items and titles
 	 */
-
+	'entity_scanner' => "Scan entities",
 
 	/**
 	 * Form fields

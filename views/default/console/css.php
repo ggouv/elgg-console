@@ -52,6 +52,17 @@
 	float: right;
 	margin-top: 6px;
 }
+#elgg-console-code .entity-scanner {
+	background: none repeat scroll 0 0 #999999;
+	font-size: 90%;
+	color: white;
+}
+#elgg-console-code .entity-scanner.activated {
+	background: none repeat scroll 0 0 green;
+}
+#elgg-console-code .entity-scanner span {
+	margin: 2px 6px -4px 1px;
+}
 
 #elgg-console-response {
 	display: none;
