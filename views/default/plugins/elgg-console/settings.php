@@ -12,8 +12,6 @@
 
 // set default value
 
-global $fb; $fb->info($vars['entity']->metaKey);
-
 if (!isset($vars['entity']->metaKey)) {
 	$vars['entity']->metaKey = 1;
 }
