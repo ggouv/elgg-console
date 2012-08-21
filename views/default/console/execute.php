@@ -15,4 +15,5 @@ elgg_set_page_owner_guid($page_owner);
 
 $code = $_REQUEST['code'];
 
-eval("$code;");
+//eval("$code;");
+echo $code;

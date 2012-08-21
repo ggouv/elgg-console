@@ -19,9 +19,6 @@ function console_init() {
 	if (elgg_is_admin_logged_in()) {
 		$root = dirname(__FILE__);
 		
-		// action
-		elgg_register_action('console', "$root/actions/console.php");
-		
 		// Extend view
 		elgg_extend_view('css/elgg', 'console/css');
 		elgg_extend_view('js/elgg', 'console/js');
