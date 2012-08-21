@@ -17,7 +17,6 @@
 elgg.provide('elgg.console');
 
 elgg.console.init = function() {
-	$(document).ready(function() {
 		$(window).keypress(function(e){
 			if (!$('#elgg-console').length &&
 				e.which == <?php echo ord(elgg_get_plugin_setting('char', 'elgg-console')); ?>
@@ -56,7 +55,7 @@ elgg.console.init = function() {
 							$(this).toggleClass('activated');
 							$.LastEntityOver = '';
 							if ($(this).hasClass('activated')) {
-								$('*').bind('mouseover', (function() {
+								$('*').removeClass('entity_scanner_over').bind('mouseover', (function() {
 									var EntityOver = $(this).parents('*[id^="elgg-object-"], *[id^="elgg-group-"], *[id^="elgg-user-"], *[id^="item-river-"], *[id^="item-annotation-"]');
 									
 									if ( EntityOver.length ) {
@@ -79,12 +78,19 @@ elgg.console.init = function() {
 												},
 												success: function(response) {
 													$('#elgg-console-response .response').html('<br/>' + response);
+													$('*').removeClass('entity_scanner_over');
 													EntityOver.addClass('entity_scanner_over');
 												}
 											});
 										}
 									}
 								}));
+								$('.elgg-page').click(function() {
+									$('.elgg-page').unbind('click');
+									$('*').unbind('mouseover');
+									$('.elgg-form-console .entity-scanner').removeClass('activated');
+									$.LastEntityOver = '';
+								});
 							} else {
 								$('*').unbind('mouseover').removeClass('entity_scanner_over');
 							}
@@ -94,8 +100,6 @@ elgg.console.init = function() {
 				});
 			} 
 		});
-	});
-
 }
 elgg.register_hook_handler('init', 'system', elgg.console.init);
 
