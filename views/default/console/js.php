@@ -17,7 +17,7 @@
 elgg.provide('elgg.console');
 
 elgg.console.init = function() {
-		$(window).keypress(function(e){
+		$(document).keypress(function(e){
 			if (!$('#elgg-console').length &&
 				e.which == <?php echo ord(elgg_get_plugin_setting('char', 'elgg-console')); ?>
 				<?php if (elgg_get_plugin_setting('metaKey', 'elgg-console') == 'yes') echo ' && e.metaKey'; ?>
